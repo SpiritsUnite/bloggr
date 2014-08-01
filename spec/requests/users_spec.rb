@@ -23,7 +23,7 @@ RSpec.describe "User Pages", :type => :request do
 
       context "after clicking button" do
         before { click_button "Sign up" }
-        it { should have_content "Success" }
+        it { should have_content "success" }
       end
     end
 

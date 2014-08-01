@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/new
+  # GET /signup
   def new
     @user = User.new
   end
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.new(new_params)
 
     if @user.save
-      redirect_to root_path, notice: 'User was successfully created.'
+      redirect_to root_path, notice: 'You have successfully signed up'
     else
       render action: 'new'
     end
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(update_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: 'You have successfully updated your details.'
     else
       render action: 'edit'
     end
