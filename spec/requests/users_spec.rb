@@ -26,5 +26,11 @@ RSpec.describe "User Pages", :type => :request do
         it { should have_content "Success" }
       end
     end
+
+    context "with invalid information" do
+      it "should display errors" do
+        expect { click_button "Sign up" }.not_to change(User, :count)
+      end
+    end
   end
 end
