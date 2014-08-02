@@ -2,7 +2,7 @@ Bloggr::Application.routes.draw do
   root "static_pages#home"
 
   resources :users
-  get 'signup' => 'users#new'
-  post 'signup' => 'users#create'
+  get 'register' => 'users#new'
+  post 'register' => 'users#create'
 
 end

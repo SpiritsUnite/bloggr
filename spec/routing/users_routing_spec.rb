@@ -9,7 +9,7 @@ RSpec.describe UsersController, :type => :routing do
 
     it "routes to #new" do
       expect(:get => "/users/new").to route_to("users#new")
-      expect(:get => "/signup").to route_to("users#new")
+      expect(:get => "/register").to route_to("users#new")
     end
 
     it "routes to #show" do

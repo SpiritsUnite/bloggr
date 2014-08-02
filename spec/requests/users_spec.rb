@@ -4,10 +4,10 @@ RSpec.describe "User Pages", :type => :request do
 
   subject { page }
 
-  describe "sign up" do
-    before { visit signup_path }
+  describe "Register" do
+    before { visit register_path }
 
-    it { should have_content("Sign up") }
+    it { should have_content("Register") }
 
     context "with valid information" do
       before do
@@ -18,18 +18,18 @@ RSpec.describe "User Pages", :type => :request do
       end
 
       it "should add the user to the database" do
-        expect { click_button "Sign up" }.to change(User, :count).by(1)
+        expect { click_button "Register" }.to change(User, :count).by(1)
       end
 
       context "after clicking button" do
-        before { click_button "Sign up" }
+        before { click_button "Register" }
         it { should have_content "success" }
       end
     end
 
     context "with invalid information" do
       it "should display errors" do
-        expect { click_button "Sign up" }.not_to change(User, :count)
+        expect { click_button "Register" }.not_to change(User, :count)
       end
     end
   end
