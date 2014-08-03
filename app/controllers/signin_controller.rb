@@ -4,7 +4,7 @@ class SigninController < ApplicationController
 
   def create
     user = User.find_by(username: params[:signin][:user]) ||
-        User.find_by(["email LIKE ?", params[:signin][:user]])
+        User.find_by(email: params[:signin][:user])
     if user && user = user.authenticate(params[:signin][:password])
       session[:current_user_id] = user.id
       add_notice(:success, "You have successfully sigend in")
