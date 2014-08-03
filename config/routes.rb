@@ -5,4 +5,8 @@ Bloggr::Application.routes.draw do
   get 'register' => 'users#new'
   post 'register' => 'users#create'
 
+  get 'signin' => 'signin#new'
+  post 'signin' => 'signin#create'
+  delete 'signout' => 'signin#destroy'
+
 end
