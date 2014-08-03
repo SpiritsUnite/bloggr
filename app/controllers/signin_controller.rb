@@ -7,7 +7,7 @@ class SigninController < ApplicationController
         User.find_by(["email LIKE ?", params[:signin][:user]])
     if user && user = user.authenticate(params[:signin][:password])
       session[:current_user_id] = user.id
-      add_notice(:success, "You have successfully logged in")
+      add_notice(:success, "You have successfully sigend in")
       redirect_to root_path
     else
       add_notice_now(:danger, "Bad username/email or password")
@@ -17,6 +17,7 @@ class SigninController < ApplicationController
 
   def destroy
     @_current_user = session[:current_user_id] = nil
+    add_notice(:success, "You have successfully signed out")
     redirect_to root_url
   end
 end
