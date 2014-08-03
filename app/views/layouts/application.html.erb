@@ -11,13 +11,15 @@
   <%= render 'layouts/navbar' %>
 
   <div class="container">
+    <%= render 'layouts/notices' if flash[:notice].is_a? Array %>
+
     <%= yield %>
 
     <% if Rails.env.development? %>
       <hr>
       <%= debug(params) %>
     <% end %>
-    
+
   </div>
 
 </body>

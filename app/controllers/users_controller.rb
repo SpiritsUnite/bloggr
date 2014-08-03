@@ -25,7 +25,8 @@ class UsersController < ApplicationController
     @user = User.new(new_params)
 
     if @user.save
-      redirect_to root_path, notice: 'You have successfully signed up'
+      add_notice(:success, 'You have successfully signed up')
+      redirect_to root_path
     else
       render action: 'new'
     end
@@ -34,7 +35,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(update_params)
-      redirect_to @user, notice: 'You have successfully updated your details.'
+      add_notice(:success, 'You have successfully updated your details.')
+      redirect_to @user
     else
       render action: 'edit'
     end
@@ -43,7 +45,8 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    add_notice(:success, 'User was successfully destroyed.')
+    redirect_to users_url
   end
 
   private

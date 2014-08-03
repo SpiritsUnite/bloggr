@@ -1,6 +1,6 @@
 <h1>Register</h1>
 
-<%= form_for @user, { html: { role: "form" } } do |f| %>
+<%= form_for @user, url: register_path, html: { role: "form" } do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <h4>Registration failed. Please check the following things:</h4>
