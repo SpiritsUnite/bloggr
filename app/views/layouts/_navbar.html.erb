@@ -13,11 +13,11 @@
     
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Home", root_path %></li>
+        <%= render "layouts/nav_link", name: "Home", path: root_path %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Register", register_path %></li>
-        <li><%= link_to "Sign in", "#" %></li>
+        <%= render "layouts/nav_link", name: "Register", path: register_path %>
+        <%= render "layouts/nav_link", name: "Sign in", path: "#" %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

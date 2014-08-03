@@ -9,6 +9,9 @@ RSpec.describe "User Pages", :type => :request do
 
     it { should have_content("Register") }
     it { should have_title("Register") }
+
+    it { should have_selector("nav li.active", text: "Register") }
+    it { should have_selector("nav li.active", count: 1) }
   end
 
   describe "Registration" do

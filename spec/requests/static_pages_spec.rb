@@ -11,5 +11,7 @@ RSpec.describe "StaticPages", :type => :request do
     it { should have_title("Bloggr") }
     it { should_not have_title("| Bloggr") }
 
+    it { should have_selector("nav li.active", text: "Home") }
+    it { should have_selector("nav li.active", count: 1) }
   end
 end

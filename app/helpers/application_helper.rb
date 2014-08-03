@@ -4,4 +4,5 @@ module ApplicationHelper
     return base if title.empty?
     return "#{title} | #{base}"
   end
+
 end
