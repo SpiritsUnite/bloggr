@@ -1,3 +1,9 @@
 // Place all the styles related to the dashboard/posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+textarea#post-body {
+  font-family: monospace;
+  transition: height 0.2s ease 0s;
+  max-height: 50vh;
+}

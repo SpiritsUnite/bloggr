@@ -22,7 +22,7 @@
   </div>
   <div class="form-group">
     <%= f.label :body, class: "control-label" %><br>
-    <%= f.text_area :body, class: "form-control" %>
+    <%= f.text_area :body, class: "form-control", id: "post-body" %>
   </div>
   <%= f.submit "Update", class: "btn btn-default" %>
   <%= f.submit "Revert to draft", class: "btn btn-default" if @post.published %>

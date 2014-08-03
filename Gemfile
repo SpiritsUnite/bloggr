@@ -18,6 +18,7 @@ gem 'sprockets'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
+gem 'autosize-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

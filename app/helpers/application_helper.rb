@@ -17,4 +17,5 @@ module ApplicationHelper
   def in_dashboard?
     params[:controller] =~ /\Adashboard\//
   end
+
 end
