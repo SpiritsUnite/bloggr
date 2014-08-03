@@ -1,1 +1,3 @@
-<li <%= 'class=active' if yield(:page_name) == name %>><%= link_to name, path %></li>
+<li <%= 'class=active' if yield(:page_name) == name %>>
+  <%= link_to name, path %>
+</li>

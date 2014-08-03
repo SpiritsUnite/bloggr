@@ -16,8 +16,12 @@
         <%= render "layouts/nav_link", name: "Home", path: root_path %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <%= render "layouts/nav_link", name: "Register", path: register_path %>
-        <%= render "layouts/nav_link", name: "Sign in", path: signin_path %>
+        <% if signed_in? %>
+          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+        <% else %>
+          <%= render "layouts/nav_link", name: "Register", path: register_path %>
+          <%= render "layouts/nav_link", name: "Sign in", path: signin_path %>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

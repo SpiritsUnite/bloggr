@@ -12,10 +12,15 @@ class ApplicationController < ActionController::Base
     flash.now[:notice] << [type, text]
   end
 
-  private
+  # Signed in session functions
+  def signed_in?
+    !current_user.nil?
+  end
+  helper_method :signed_in?
 
   def current_user
     @_current_user ||= session[:current_user_id] &&
         User.find_by(id: session[:current_user_id])
   end
+
 end
