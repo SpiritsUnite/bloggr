@@ -23,4 +23,11 @@ class ApplicationController < ActionController::Base
         User.find_by(id: session[:current_user_id])
   end
 
+  def check_sign_in
+    unless signed_in?
+      add_notice(:danger, "Please sign in")
+      redirect_to signin_path
+    end
+  end
+
 end

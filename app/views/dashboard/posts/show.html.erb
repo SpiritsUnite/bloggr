@@ -1,0 +1,9 @@
+<% provide(:page_name, "Dashboard") %>
+<% provide(:side_name, "Posts") %>
+
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<%= link_to "Edit", edit_dashboard_post_path(@post), class: "btn btn-default" %>
+<%= link_to "Back", dashboard_path, class: "btn btn-default" %>
