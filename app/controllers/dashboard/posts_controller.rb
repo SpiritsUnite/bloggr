@@ -3,7 +3,7 @@ class Dashboard::PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order('updated_at DESC')
   end
 
   def show
@@ -48,7 +48,7 @@ class Dashboard::PostsController < ApplicationController
 
     if @post.update(post_params)
       add_notice(:success, 'You have successfully updated the post.')
-      redirect_to dashboard_path
+      redirect_to dashboard_post_path(@post)
     else
       render action: 'edit'
     end

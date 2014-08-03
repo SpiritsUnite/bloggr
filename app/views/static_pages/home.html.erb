@@ -2,7 +2,10 @@
 <% @posts.each do |post| %>
   <div class="post">
     <h1><%= post.title %></h1>
-    <%= post.body %>
-    <p class="small">By <%= link_to post.author.username, post.author %></p>
+    <hr>
+    <%= raw(mrkup post.body) %>
+    <p class="small">
+      By <%= link_to post.author.username, post.author %> on <%= post.updated_at %>
+    </p>
   </div>
 <% end %>

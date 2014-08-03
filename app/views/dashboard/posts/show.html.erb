@@ -3,7 +3,7 @@
 
 <h1><%= @post.title %></h1>
 
-<p><%= @post.body %></p>
+<p><%= raw(mrkup @post.body) %></p>
 
 <%= link_to "Edit", edit_dashboard_post_path(@post), class: "btn btn-default" %>
 <%= link_to "Back", dashboard_path, class: "btn btn-default" %>
