@@ -13,14 +13,14 @@
     
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav">
-        <%= render "layouts/nav_link", name: "Home", path: root_path %>
+        <%= nav_link "Home", root_path %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <%= nav_link "Sign out", signout_path, method: "delete" %>
         <% else %>
-          <%= render "layouts/nav_link", name: "Register", path: register_path %>
-          <%= render "layouts/nav_link", name: "Sign in", path: signin_path %>
+          <%= nav_link "Register", register_path %>
+          <%= nav_link "Sign in", signin_path %>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
