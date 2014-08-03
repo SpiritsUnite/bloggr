@@ -4,10 +4,15 @@ RSpec.describe "User Pages", :type => :request do
 
   subject { page }
 
-  describe "Register" do
+  describe "Register page" do
     before { visit register_path }
 
     it { should have_content("Register") }
+    it { should have_title("Register") }
+  end
+
+  describe "Registration" do
+    before { visit register_path }
 
     context "with valid information" do
       before do
