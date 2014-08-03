@@ -1,9 +1,9 @@
 <h1>Register</h1>
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user, { html: { role: "form" } } do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <h4>Registration failed. Please check the following things:</h4>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -13,26 +13,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+  <div class="form-group">
+    <%= f.label :username, class: "control-label" %><br>
+    <%= f.text_field :username, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email, class: "control-label" %><br>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+  <div class="form-group">
+    <%= f.label :password, class: "control-label" %><br>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "control-label" %><br>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit "Register" %>
-  </div>
+  <%= f.submit "Register", class: "btn btn-default" %>
+  <%= link_to 'Back', root_path, class: "btn btn-default" %>
 <% end %>
 
 
-<%= link_to 'Back', root_path %>
