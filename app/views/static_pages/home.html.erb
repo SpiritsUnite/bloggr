@@ -1,11 +1,2 @@
 <% provide(:page_name, "Home") %>
-<% @posts.each do |post| %>
-  <div class="post">
-    <h1><%= post.title %></h1>
-    <hr>
-    <%= raw(mrkup post.body) %>
-    <p class="small">
-      By <%= post.author.username %> on <%= post.created_at %>
-    </p>
-  </div>
-<% end %>
+<%= render 'shared/posts' %>

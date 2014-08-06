@@ -22,13 +22,13 @@
               <em>draft</em>
             <% end %>
           </td>
-          <td><%= post.author.username %></td>
+          <td><%= link_to post.author.username, post.author %></td>
           <td class="col-xs-1">
-            <%= link_to edit_dashboard_post_path(post), class: "btn btn-default btn-sm" do %>
+            <%= link_to edit_dashboard_post_path(post), class: "btn btn-default btn-sm" + (@_current_user == post.author and "" or " disabled") do %>
               <span class="glyphicon glyphicon-pencil"></span>
             <% end %>
           <td class="col-xs-1">
-            <%= link_to dashboard_post_path(post), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= link_to dashboard_post_path(post), class: "btn btn-danger btn-sm" + (@_current_user == post.author and "" or " disabled"), method: :delete, data: { confirm: 'Are you sure?' } do %>
               <span class="glyphicon glyphicon-trash"></span>
             <% end %>
           </td>

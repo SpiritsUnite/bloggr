@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @posts = @user.posts
   end
 
   # GET /users/new
