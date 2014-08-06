@@ -168,8 +168,8 @@ module MarkupHelper
 
 
   def mrkup(s)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true)
-    return markdown.render(h(s))
+    #markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true)
+    #return markdown.render(h(s))
     # first chunk the sections, then parse each
     chunk(s).map {|item|
       if item[0] == :heading

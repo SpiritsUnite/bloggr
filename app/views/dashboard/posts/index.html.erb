@@ -22,7 +22,7 @@
               <em>draft</em>
             <% end %>
           </td>
-          <td><%= link_to post.author.username, post.author %></td>
+          <td><%= post.author.username %></td>
           <td class="col-xs-1">
             <%= link_to edit_dashboard_post_path(post), class: "btn btn-default btn-sm" do %>
               <span class="glyphicon glyphicon-pencil"></span>

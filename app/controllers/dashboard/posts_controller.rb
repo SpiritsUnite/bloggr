@@ -3,7 +3,7 @@ class Dashboard::PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all.order('updated_at DESC')
+    @posts = Post.all.order('created_at DESC')
   end
 
   def show
@@ -20,11 +20,7 @@ class Dashboard::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.author = current_user
 
-    if params[:commit] == "Publish"
-      @post.published = true
-    else
-      @post.published = false
-    end
+    @post.published = params[:commit] == "Publish"
 
     if @post.save
       add_notice(:success, 'Post successfully saved')
@@ -37,7 +33,7 @@ class Dashboard::PostsController < ApplicationController
   def update
     unless @post.author == current_user
       add_notice(:danger, 'You are not allowed to edit that post')
-      redirect_to dashboard_path
+      redirect_to dashboard_path and return
     end
 
     if params[:commit] == "Publish"
@@ -57,7 +53,7 @@ class Dashboard::PostsController < ApplicationController
   def destroy
     unless @post.author == current_user
       add_notice(:danger, 'You are not allowed to delete that post')
-      redirect_to dashboard_path
+      redirect_to dashboard_path and return
     end
     @post.destroy
     add_notice(:success, 'Post successfully deleted')
