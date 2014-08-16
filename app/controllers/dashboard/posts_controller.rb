@@ -17,6 +17,11 @@ class Dashboard::PostsController < ApplicationController
   end
 
   def create
+    if Post.where("created_at > ?", Time.now - 30.minutes).count >= 5
+      add_notice(:danger, "Whoa slow down there! You have already posted 5 times in the last 30 minutes. Do you need to reevaluate your life?")
+      redirect_to dashboard_path
+      return
+    end
     @post = Post.new(post_params)
     @post.author = current_user
 
