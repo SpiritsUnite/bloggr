@@ -27,7 +27,7 @@
       <%= yield %>
     <% end %>
 
-    <% if false && Rails.env.development? %>
+    <% if Rails.env.development? %>
       <hr>
       <%= debug(params) %>
     <% end %>
