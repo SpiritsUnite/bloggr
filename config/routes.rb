@@ -5,6 +5,7 @@ Bloggr::Application.routes.draw do
   namespace :dashboard do
     resources :posts
   end
+  resources :posts, only: :show
 
   get 'register' => 'users#new'
   post 'register' => 'users#create'
