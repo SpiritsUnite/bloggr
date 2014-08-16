@@ -17,3 +17,5 @@
 
 # Ignore sublime
 *.sublime-workspace
+
+/public/assets
