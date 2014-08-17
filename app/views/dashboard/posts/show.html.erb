@@ -5,5 +5,5 @@
 
 <p><%= raw(mrkup @post.body) %></p>
 
-<%= link_to "Edit", edit_dashboard_post_path(@post), class: "btn btn-default" %>
+<%= link_to "Edit", edit_dashboard_post_path(@post), class: "btn btn-default" + (@_current_user == @post.author and "" or " disabled") %>
 <%= link_to "Back", dashboard_path, class: "btn btn-default" %>
