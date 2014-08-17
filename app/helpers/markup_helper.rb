@@ -66,13 +66,23 @@ module MarkupHelper
   # adds some formatting to text
   def parse(s)
     s = h(s)
+    s.gsub!(/(?<!\\)((?:\\\\)*)\[(.*?(?<!\\)(?:\\\\)*)\]\((.*?)\)/, '\1<a href="\3">\2</a>')
     escape = false
+    tag = false
     strong = false
     emphasise = false
     underline = false
     mono = false
     s = s.split(//).map { |c|
-      if escape
+      if c == '>'
+        tag = false
+        next c
+      elsif c == '<'
+        tag = true
+        next c
+      elsif tag
+        next c
+      elsif escape
         escape = false
         next c
       elsif c == '\\'
