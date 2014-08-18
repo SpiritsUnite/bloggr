@@ -1,1 +1,8 @@
 <%= render 'shared/post', post: @post %>
+
+<% @post.comments.each do |comment| %>
+<div class="well">
+  <p><em><%= comment.author %></em></p>
+  <%= raw(mrkup post.body) %>
+</div>
+<% end %>
