@@ -180,6 +180,8 @@ module MarkupHelper
   def mrkup(s)
     #markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true)
     #return markdown.render(h(s))
+    # remove escaped newlines
+    s.gsub!(/(?<!\\)((?:\\\\)*)\\\r?\n/, '\1')
     # first chunk the sections, then parse each
     chunk(s).map {|item|
       if item[0] == :heading
