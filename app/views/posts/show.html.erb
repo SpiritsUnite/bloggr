@@ -25,15 +25,5 @@
 
 <div class="well">
 <h4><strong>Comments:</strong></h4>
-<% @post.comments.each do |comment| %>
-<div>
-  <p><em><%= comment.author.username %> says...</em></p>
-  <div style="text-indent: 1.5em">
-    <p>
-      <%= raw(mrkup comment.body) %>
-      <small><%= time_ago_in_words(comment.created_at) %> ago</small>
-    </p>
-  </div>
-</div>
-<% end %>
+<%= render @post.comments %>
 </div>
