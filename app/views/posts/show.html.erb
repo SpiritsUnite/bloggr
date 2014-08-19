@@ -1,8 +1,39 @@
 <%= render 'shared/post', post: @post %>
 
-<% @post.comments.each do |comment| %>
+<% if signed_in? %>
+  <%= form_for @comment, url: @post do |f| %>
+    <% if @comment.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h4>Commenting failed. Please check the following things:</h4>
+
+        <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :body, "Add comment", class: "control-label" %><br>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-default" %>
+  <% end %>
+  <hr>
+<% end %>
+
 <div class="well">
-  <p><em><%= comment.author %></em></p>
-  <%= raw(mrkup post.body) %>
+<h4><strong>Comments:</strong></h4>
+<% @post.comments.each do |comment| %>
+<div>
+  <p><em><%= comment.author.username %> says...</em></p>
+  <div style="text-indent: 1.5em">
+    <p>
+      <%= raw(mrkup comment.body) %>
+      <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+    </p>
+  </div>
 </div>
 <% end %>
+</div>
