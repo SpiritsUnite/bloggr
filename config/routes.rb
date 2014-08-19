@@ -18,4 +18,6 @@ Bloggr::Application.routes.draw do
 
   get 'dashboard' => 'dashboard/posts#index'
 
+  get 'help' => 'static_pages#help'
+
 end

@@ -18,6 +18,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
+          <%= nav_link "Markup help", help_path %>
           <%= nav_link "Sign out", signout_path, method: "delete" %>
         <% else %>
           <%= nav_link "Register", register_path %>
