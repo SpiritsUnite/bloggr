@@ -4,5 +4,7 @@
   <%= raw(mrkup post.body) %>
   <p class="small">
     Posted <%= time_ago_in_words(post.created_at) %> ago by <%= link_to post.author.username, post.author %>
+    <br/>
+	<%= link_to pluralize(post.comments.count, 'comment'), post_path(post, anchor: "comments") %>
   </p>
 </div>
