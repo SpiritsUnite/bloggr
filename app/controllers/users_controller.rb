@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    @posts = @user.posts.order("created_at DESC")
+    @posts = @user.posts.order("created_at DESC").page(params[:page]).per_page(5)
   end
 
   # GET /users/new
